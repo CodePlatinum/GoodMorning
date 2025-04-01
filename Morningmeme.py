@@ -1,18 +1,19 @@
 import telebot
 import random
-import os
 import schedule
 
-
-token = "7666674896:AAG95S_eVb4T6ytNZac9C_04x786UgvSJOM"
-user = 6993321134
-folder = 'memes'
+token = "YOUR TOKEN" # CHANGE THE TEXT "YOUR TOKEN" TO YOUR TELEGRAM BOT TOKEN
+user = "user code"   # ADD HERE SOMEONES ID TO ALSO SEND THEM THE MEMES
+folder = 'memes'     # YOU NEED TO MAKE A FOLDER IN YOUR PROGRAM CALLED "MEMES" AND THERE YOU CAN ADD YOUR MEMES. THEIR NAME SHOULD BE "1.jpg" and "2.jpg".
 
 bot = telebot.TeleBot(token)
 
 def random_meme():
-    files = os.listdir(folder)
-    return (os.path.join(folder, random.choice(files))) if files else None
+    files = ["1.jpg", "2.jpg",]  
+    if files:
+        return f"{folder}/{random.choice(files)}"
+    else:
+        return None
 
 def send_meme():
     meme_path = random_meme()
